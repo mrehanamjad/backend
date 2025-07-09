@@ -18,6 +18,18 @@ prettier
 npm i -D prettier
 ```
 - now make to files `.prettierrc` & `.prettierignore`
+cookie-parser: 
+- Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+```bash
+npm i cookie-parser
+```
+CORS: 
+- Middleware to resolve cors error
+
+```bash
+npm i cors
+```
+
 
 ---
 initial folder structure:
