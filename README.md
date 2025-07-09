@@ -29,6 +29,22 @@ CORS:
 ```bash
 npm i cors
 ```
+mongoose-aggregate-paginate-v2
+- It’s a Mongoose plugin that adds a .aggregatePaginate() method to your Mongoose models.
+- This is especially useful when you're using Model.aggregate(), because the normal .paginate() plugin doesn't work with aggregate().
+```bash
+npm i mongoose-aggregate-paginate-v2
+```
+bcrypt
+- for password hashing
+```bash 
+npm i bcrypt
+```
+jsonwebtoken:
+```bash 
+npm i jsonwebtoken
+```
+
 
 
 ---
