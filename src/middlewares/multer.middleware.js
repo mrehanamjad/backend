@@ -19,9 +19,7 @@ const upload = multer({ storage })
 
 
 /* NOTES:
-
 multer.diskStorage() vs multer.memoryStorage()
-
 🔸 memoryStorage
     💾 Stores files in RAM as Buffers (not saved to disk).
        Useful for:
