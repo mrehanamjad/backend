@@ -77,3 +77,7 @@ initial folder structure:
 - package.json
 - README.md
 ```
+
+
+
+## [Model link](https://app.eraser.io/workspace/rIcLf0VAL9Q4JxebA3Rl?origin=share)
