@@ -44,7 +44,11 @@ jsonwebtoken:
 ```bash 
 npm i jsonwebtoken
 ```
-
+multer: 
+- handleing multipart/form-data  file upload
+```bash
+npm i multer
+```
 
 
 ---
