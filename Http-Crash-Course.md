@@ -1,4 +1,4 @@
-# HTTP Course
+# HTTP Course Notes
 
 **HyperText Transfer Protocol**  
 
