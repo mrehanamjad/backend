@@ -5,7 +5,7 @@ import { ApiError } from "../utils/ApiError";
 import { asyncHandler } from "../utils/asyncHandler";
 import { User } from "../models/user.model";
 
-export const varifyJWT = asyncHandler(async (req, res, next) => {
+export const verifyJWT = asyncHandler(async (req, _ /*as res parameter is unused */, next) => {
     try {
         // user may be on mobile app, etc so sends access token in header instude of cookie
         const token = req.cookie?.accessToken || req.header("Authorization").replace("Bearer", "")
