@@ -1,14 +1,15 @@
 // this middleware varify user exist or not
 
 import jwt from "jsonwebtoken";
-import { ApiError } from "../utils/ApiError";
-import { asyncHandler } from "../utils/asyncHandler";
-import { User } from "../models/user.model";
+import { ApiError } from "../utils/ApiError.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { User } from "../models/user.model.js";
 
 export const verifyJWT = asyncHandler(async (req, _ /*as res parameter is unused */, next) => {
     try {
         // user may be on mobile app, etc so sends access token in header instude of cookie
-        const token = req.cookie?.accessToken || req.header("Authorization").replace("Bearer", "")
+        const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer", "").trim();
+
         /*  api header :
            ______________________________
            key            | value
