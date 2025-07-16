@@ -29,22 +29,22 @@ Used for:
 
 ### 🧰 Common Headers (CORS & Security)
 
-Most Commen Heaaders:
-- `Accept: application/json`
-- `User-Agent`
-- `Authorization`
-- `Content-Type`
-- `Cookie`
-- `Cache-Control`
-CORS:
-- `Access-Control-Allow-Origin`
-- `Access-Control-Allow-Credentials`
-- `Access-Control-Allow-Methods`
-Security:
-- `Content-Security-Policy`
-- `Cross-Origin-Embedder-Policy`
-- `Cross-Origin-Opener-Policy`
-- `X-XSS-Protection`
+- Most Commen Heaaders:
+    - `Accept: application/json`
+    - `User-Agent`
+    - `Authorization`
+    - `Content-Type`
+    - `Cookie`
+    - `Cache-Control`
+- CORS:
+    - `Access-Control-Allow-Origin`
+    - `Access-Control-Allow-Credentials`
+    - `Access-Control-Allow-Methods`
+- Security:
+    - `Content-Security-Policy`
+    - `Cross-Origin-Embedder-Policy`
+    - `Cross-Origin-Opener-Policy`
+    - `X-XSS-Protection`
 
 ---
 
