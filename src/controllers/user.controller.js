@@ -4,6 +4,7 @@ import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
 
 
 
@@ -419,6 +420,65 @@ const getUserChannelProfile = asyncHandler(async (req, res) => {
 
 })
 
+const getWatchHistory = asyncHandler(async (req, res) => {
+    //  req.user?._id; // return  a string, e.g., "643f1a4e5c9e3d2f88a6b123" 
+    const user = await User.aggregate([
+        {
+            $match: {
+                _id: new mongoose.Types.ObjectId(req.user?._id)
+            }
+        },
+        {
+            $lookup: {
+                from: "videos", // collection name
+                localField: "watchHistory",
+                foreignField: "_id",
+                as: "watchHistory",
+                pipeline: [
+                    {
+                        $lookup: {
+                            from: "users",
+                            localField: "owner",
+                            foreignField: "_id",
+                            as: "owner",
+                            pipeline: [
+                                {
+                                    $project: {
+                                        username: 1,
+                                        fullName: 1,
+                                        avatar: 1
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        // To restructure the (response) owner field to be a single object instead of an array
+                        $addFields: {
+                            $first: "$owner" // get the first element of the owner array
+                        }
+                    }
+                ]
+            }
+        }
+    ])
+
+    // aggregate returns array, [{},{},...]
+    if (!user || user.length === 0) {
+        throw new ApiError(404, "User not found or watch history is empty")
+    }
+   
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            user[0].watchHistory,
+            "Watch history fetched successfully"
+        )
+    )
+})
+
 export {
     registerUser,
     loginUser,
@@ -430,5 +490,5 @@ export {
     updateUserAvatar,
     updateUserCoverImage,
     getUserChannelProfile,
-
+    getWatchHistory
 };
